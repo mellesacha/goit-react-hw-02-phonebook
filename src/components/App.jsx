@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import ContactForm from "./ContactForm";
 import ContactList from "./ContactList";
 import Filter from "./Filter";
+import { Container, Title } from "./App.styled";
 
 export class App extends Component {
 
@@ -25,8 +26,9 @@ export class App extends Component {
     this.setState(prevState => 
       this.state.contacts.find(contact => contact.name.toLowerCase() === newContact.name.toLowerCase())
           ? (alert(`${newContact.name} is already in contacts`))
-          : { contacts: [...prevState.contacts, { ...newContact }] }
+          : { contacts: [{ ...newContact }, ...prevState.contacts] }
     )
+
   }
 
   deleteContact = (id) => {
@@ -50,14 +52,14 @@ export class App extends Component {
     );
 
     return (
- <div>
-  <h1>Phonebook</h1>
+ <Container>
+  <Title>Phonebook</Title>
         <ContactForm addContact={this.onAddContact } />
 
-  <h2>Contacts</h2>
+  <Title>Contacts</Title>
         <Filter search={filter}  handlInput={this.handlInputFilter}/>
         <ContactList contacts={filteredContacts} onDeleteContact={ this.deleteContact} />
-</div>
+</Container>
     )
   
    
