@@ -17,6 +17,6 @@ const Filter = ({search, handlInput}) => {
 export default Filter;
 
 Filter.propTypes = {
-    search: PropTypes.string,
-    handlInput: PropTypes.func
+    search: PropTypes.string.isRequired,
+    handlInput: PropTypes.func.isRequired
 }
