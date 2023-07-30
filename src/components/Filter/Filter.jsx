@@ -1,26 +1,12 @@
-// import { Component } from "react";
-
-// class Filter extends Component {
-
-//     hendlImput = (e) => {
-//         console.log(e.target.value)
-//         this.props.searchQuery(e.target.value)
-//     }
-
-//     render() {
-//          return (
-//              <input value={} onChange={this.hendlImput } />
-//     )
-// };
-// }
+import PropTypes from 'prop-types';
     
-const Filter = ({search, hendlInput}) => {
+const Filter = ({search, handlInput}) => {
     return (
         <label> Find contacts by name
             <input
             type="text"
             value={search}
-            onChange={hendlInput} />
+            onChange={handlInput} />
         </label>
         
     )
@@ -28,3 +14,8 @@ const Filter = ({search, hendlInput}) => {
    
 
 export default Filter;
+
+Filter.propTypes = {
+    search: PropTypes.string,
+    handlInput: PropTypes.func
+}

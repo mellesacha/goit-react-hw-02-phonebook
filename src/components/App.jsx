@@ -37,7 +37,7 @@ export class App extends Component {
     });
   };
 
-  hendlInputFilter = (e) => {
+  handlInputFilter = (e) => {
     this.setState({ filter: e.target.value })
   }
 
@@ -55,7 +55,7 @@ export class App extends Component {
         <ContactForm addContact={this.onAddContact } />
 
   <h2>Contacts</h2>
-        <Filter search={filter}  hendlInput={this.hendlInputFilter}/>
+        <Filter search={filter}  handlInput={this.handlInputFilter}/>
         <ContactList contacts={filteredContacts} onDeleteContact={ this.deleteContact} />
 </div>
     )
